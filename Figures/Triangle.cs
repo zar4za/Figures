@@ -1,18 +1,29 @@
-﻿namespace Figures;
+﻿using Figures.Exceptions;
+
+namespace Figures;
 
 public class Triangle : IFigure
 {
-    private decimal _sideA;
-    private decimal _sideB;
-    private decimal _sideC;
-
+    private readonly decimal[] _sides;
 
     public Triangle(decimal sideA, decimal sideB, decimal sideC)
     {
-        _sideA = sideA;
-        _sideB = sideB;
-        _sideC = sideC;
+        _sides = new[]
+        {
+            sideA,
+            sideB,
+            sideC
+        };
+
+        Array.Sort(_sides);
+        TriangleSidesException.ThrowIfImpossible(_sides[2], _sides[0], _sides[1]);
     }
 
-    public decimal Area { get; }
+    private decimal SemiPerimeter => _sides.Sum() / 2m;
+
+    private decimal HeronsArea => DecimalMath.Sqrt(SemiPerimeter * (SemiPerimeter - _sides[0]) * (SemiPerimeter - _sides[1]) * (SemiPerimeter - _sides[2]));
+
+    public decimal Area => IsRight ? _sides[0] * _sides[1] / 2m : HeronsArea;
+
+    public bool IsRight => _sides[2] * _sides[2] == _sides[0] * _sides[0] + _sides[1] * _sides[1];
 }
