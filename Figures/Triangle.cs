@@ -1,8 +1,8 @@
-﻿using Figures.Exceptions;
+﻿using Shapes.Exceptions;
 
-namespace Figures;
+namespace Shapes;
 
-public class Triangle : IFigure
+public class Triangle : IShape
 {
     private readonly decimal[] _sides;
 

@@ -1,4 +1,4 @@
-﻿namespace Figures.Tests;
+﻿namespace Shapes.Tests;
 
 public class TriangleTests
 {

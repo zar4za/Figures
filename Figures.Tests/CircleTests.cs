@@ -1,6 +1,6 @@
-using Figures.Exceptions;
+using Shapes.Exceptions;
 
-namespace Figures.Tests;
+namespace Shapes.Tests;
 
 public class CircleTests
 {

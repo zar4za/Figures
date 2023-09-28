@@ -1,8 +1,8 @@
-﻿using Figures.Exceptions;
+﻿using Shapes.Exceptions;
 
-namespace Figures;
+namespace Shapes;
 
-public class Circle : IFigure
+public class Circle : IShape
 {
     // sqrt from max decimal area divided by PI, otherwise we get decimal overflow in Area calculation
     private const decimal MaxRadius = 1.588052498894994084082740687305337748448310574923476560599e+14m;

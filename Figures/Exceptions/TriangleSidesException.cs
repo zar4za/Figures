@@ -1,4 +1,4 @@
-﻿namespace Figures.Exceptions;
+﻿namespace Shapes.Exceptions;
 
 public class TriangleSidesException : FigureException
 {

@@ -1,4 +1,4 @@
-﻿namespace Figures;
+﻿namespace Shapes;
 
 internal class DecimalMath
 {
