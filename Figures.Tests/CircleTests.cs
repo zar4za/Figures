@@ -1,3 +1,5 @@
+using Figures.Exceptions;
+
 namespace Figures.Tests;
 
 public class CircleTests
@@ -13,8 +15,6 @@ public class CircleTests
         { 1m, Pi }
     };
 
-
-
     [Theory]
     [MemberData(nameof(CircleData))]
     public void Area_WithCloseToLimitRadius_ShouldReturnCorrectArea(decimal radius, decimal expectedArea)
@@ -24,5 +24,14 @@ public class CircleTests
         var area = circle.Area;
 
         Assert.Equal(expectedArea, area);
+    }
+
+    [Fact]
+    public void Constructor_RadiusLargerThanMaxAllowed_ShouldThrowCircleRadiusException()
+    {
+        Assert.Throws<CircleRadiusException>(() =>
+        {
+            var circle = new Circle(2e+14m);
+        });
     }
 }
