@@ -1,5 +1,8 @@
 ﻿namespace Shapes.Exceptions;
 
+/// <summary>
+/// Base exception abstraction for Shapes
+/// </summary>
 public abstract class FigureException : Exception
 {
     protected FigureException(string message) : base(message) { }

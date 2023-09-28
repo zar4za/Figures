@@ -2,6 +2,9 @@
 
 namespace Shapes;
 
+/// <summary>
+/// Represents a Circle.
+/// </summary>
 public class Circle : IShape
 {
     // sqrt from max decimal area divided by PI, otherwise we get decimal overflow in Area calculation
@@ -9,6 +12,11 @@ public class Circle : IShape
 
     private readonly decimal _radius;
 
+    /// <summary>
+    /// Creates a new instance of <see cref="Circle"/> with given radius.
+    /// </summary>
+    /// <param name="radius">Radius used to set a circle.</param>
+    /// <exception cref="CircleRadiusException"></exception>
     public Circle(decimal radius)
     {
         CircleRadiusException.ThrowIfOutOfRange(0, MaxRadius, radius); 
