@@ -13,6 +13,13 @@ public class TriangleTests
         { 3m, 4m, 5m, 6m }
     };
 
+    public static TheoryData<decimal, decimal, decimal, decimal> OrderTriangleData => new()
+    {
+        { 3m, 5m, 4m, 6m },
+        { 5m, 4m, 3m, 6m },
+        { 4m, 5m, 3m, 6m }
+    };
+
 
     [Theory]
     [MemberData(nameof(TriangleData))]
@@ -29,6 +36,19 @@ public class TriangleTests
     [Theory]
     [MemberData(nameof(RightTriangleData))]
     public void Area_RightTriangle_ShouldReturnCorrectArea(decimal sideA, decimal sideB, decimal sideC,
+        decimal expectedArea)
+    {
+        var triangle = new Triangle(sideA, sideB, sideC);
+
+        var area = triangle.Area;
+        
+        Assert.True(triangle.IsRight);
+        Assert.Equal(expectedArea, area);
+    }
+
+    [Theory]
+    [MemberData(nameof(OrderTriangleData))]
+    public void Area_DifferentOrderButSameSides_ShouldReturnCorrectArea(decimal sideA, decimal sideB, decimal sideC,
         decimal expectedArea)
     {
         var triangle = new Triangle(sideA, sideB, sideC);
