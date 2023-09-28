@@ -9,5 +9,5 @@ public class Circle : IFigure
         _radius = radius;
     }
 
-    public decimal Area => (decimal)Math.PI * _radius * _radius;
+    public decimal Area => _radius * _radius * (decimal)Math.PI;
 }
